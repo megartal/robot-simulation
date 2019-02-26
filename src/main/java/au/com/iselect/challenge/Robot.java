@@ -1,12 +1,7 @@
 package au.com.iselect.challenge;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Service;
 
 /**
  * @Author Akbar
@@ -31,13 +26,13 @@ public class Robot {
     public void move() {
         switch (facing) {
             case NORTH:
-                y = (grid.isRobotPositionValid(x, ++y)) ? y : grid.getHeight();
+                y = (grid.isRobotPositionValid(x, ++y)) ? y : grid.getHeight() - 1;
                 break;
             case SOUTH:
                 y = (grid.isRobotPositionValid(x, --y)) ? y : 0;
                 break;
             case EAST:
-                x = (grid.isRobotPositionValid(++x, y)) ? x : grid.getWidth();
+                x = (grid.isRobotPositionValid(++x, y)) ? x : grid.getWidth() - 1;
                 break;
             case WEST:
                 x = (grid.isRobotPositionValid(--x, y)) ? x : 0;
